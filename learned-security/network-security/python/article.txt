@@ -1,0 +1,6 @@
+python闭包
+https://zhuanlan.zhihu.com/p/22229197
+python装饰器
+https://www.liaoxuefeng.com/wiki/1016959663602400/1017451662295584
+python生成器
+https://www.liaoxuefeng.com/wiki/1016959663602400/1017318207388128

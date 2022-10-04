@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="learned-ui" />
+        <module name="learned-security" />
+        <module name="learned-java" />
+        <module name="learned-overall" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="learned-before" target="1.8" />
+      <module name="learned-java" target="1.8" />
+      <module name="learned-overall" target="1.8" />
+      <module name="learned-security" target="1.8" />
+      <module name="learned-ui" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="learned-before" options="-parameters" />
+      <module name="learned-java" options="-parameters" />
+      <module name="learned-overall" options="-parameters" />
+      <module name="learned-security" options="-parameters" />
+      <module name="learned-ui" options="-parameters" />
+    </option>
+  </component>
+</project>

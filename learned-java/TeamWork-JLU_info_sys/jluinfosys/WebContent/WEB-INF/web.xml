@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <display-name>jluinfosys</display-name>
+  <welcome-file-list>
+   <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <context-param>
+    <param-name>AttFilePath</param-name>
+    <param-value>/WEB-INF/upload</param-value>
+  </context-param>
+  <filter>
+    <filter-name>UnauthorizedPageFilter</filter-name>
+    <filter-class>jlu.control.filter.UnauthorizedPageFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>UnauthorizedPageFilter</filter-name>
+    <url-pattern></url-pattern>
+  </filter-mapping>
+  <filter>
+    <filter-name>SessionFilter</filter-name>
+    <filter-class>jlu.control.filter.SessionFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>SessionFilter</filter-name>
+    <url-pattern>/html/admin/index/index.html</url-pattern>
+    <url-pattern>/html/admin/index/admin-info.html</url-pattern>
+    <url-pattern>/html/admin/index/article-add.html</url-pattern>
+    <url-pattern>/html/admin/index/article-detail.html</url-pattern>
+    <url-pattern>/html/admin/index/article-list.html</url-pattern>
+    <url-pattern>/html/admin/index/column-danye-detail.html</url-pattern>
+    <url-pattern>/html/admin/index/danye-detail.html</url-pattern>
+    <url-pattern>/html/admin/index/danye-list.html</url-pattern>
+    <url-pattern>/html/admin/index/email-write.html</url-pattern>
+    <url-pattern>/html/admin/index/email.html</url-pattern>
+    <url-pattern>/html/admin/index/index.html</url-pattern>
+    <url-pattern>/html/admin/index/manu-add.html</url-pattern>
+    <url-pattern>/html/admin/index/manu-add2.html</url-pattern>
+    <url-pattern>/html/admin/index/manu1.html</url-pattern>
+    <url-pattern>/html/admin/index/manu2.html</url-pattern>
+    <url-pattern>/html/admin/index/rbac-admin.html</url-pattern>
+    <url-pattern>/html/admin/index/rbac-user-list.html</url-pattern>
+    <url-pattern>/html/admin/index/system.html</url-pattern>
+    <url-pattern>/html/admin/index/welcome.html</url-pattern>
+    <url-pattern>/html/admin/index/file-list.html</url-pattern>
+    <url-pattern>/html/mine.jsp</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+    <filter-name>XssFilter</filter-name>
+    <filter-class>jlu.control.filter.XssFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>XssFilter</filter-name>
+    <url-pattern></url-pattern>
+  </filter-mapping>
+  
+  <filter>
+    <filter-name>SqliFilter</filter-name>
+    <filter-class>jlu.control.filter.SqliFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>SqliFilter</filter-name>
+    <url-pattern>/login</url-pattern>
+  </filter-mapping> 
+
+  <filter>
+    <filter-name>UploadFilter</filter-name>
+    <filter-class>jlu.control.filter.UploadFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>UploadFilter</filter-name>
+    <url-pattern>/upload</url-pattern>
+  </filter-mapping>
+  
+</web-app>

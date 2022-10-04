@@ -1,0 +1,12 @@
+这个文件夹下放用来和数据库交互操作的类，应该写一些可以复用，通用的功能
+使用JPA
+有需要可以再建子文件夹
+
+Dao文件写接口
+DaoImpl具体实现
+参照例子见文件ExampleDao
+详细的概述看https://www.w3cschool.cn/java/jpa-entitymanager.html
+
+
+BaseDao用来数据库连接，使用JNDI
+设计代码先写接口

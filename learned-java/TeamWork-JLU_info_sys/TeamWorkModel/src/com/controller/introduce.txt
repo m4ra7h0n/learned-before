@@ -1,0 +1,14 @@
+这个文件夹用来放servlet等
+用来处理get/post/put等请求
+可跳转到页面，也可转发给service层。
+
+
+除了极少数不复用的简单处理，controller层不应该包含业务逻辑，controller的功能应该有以下五点：
+1.参数校验
+2.调用service层接口实现业务逻辑
+3.转换业务／数据对象
+4.组装返回对象
+5.异常处理
+
+例子参照：https://www.jianshu.com/p/654f4589eb8e
+

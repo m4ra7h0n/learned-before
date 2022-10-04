@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>吉软资料库</title>
+<link rel="stylesheet" href="../css/mdui.min.css" />
+<link rel="stylesheet" href="../css/index.css" />
+<script src="../js/mdui.min.js"></script>
+<script src="../js/dialog.js"></script>
+<script src="../js/index.js"></script>
+</head>
+<body>
+	<div class="appbar mdui-appbar">
+		<div class="mdui-appbar">
+			<div class="mdui-toolbar mdui-color-indigo">
+				<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i
+					class="mdui-icon material-icons">menu</i></a> <a href="javascript:;"
+					class="mdui-typo-headline">吉软资料库</a>
+				<div class="mdui-toolbar-spacer"></div>
+				<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i
+					class="mdui-icon material-icons" mdui-tooltip="{content: '搜索'}"
+					mdui-dialog="{target: '#example-4'}">search</i></a> <a
+					href="javascript:location.reload(true);"
+					class="mdui-btn mdui-btn-icon"><i
+					class="mdui-icon material-icons" mdui-tooltip="{content: '刷新'}">refresh</i></a>
+				<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i
+					class="mdui-icon material-icons" mdui-tooltip="{content: '更多'}">more_vert</i></a>
+				<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i
+					class="mdui-icon material-icons" mdui-tooltip="{content: '我的'}"
+					mdui-dialog="{target: '#example-5'}">account_circle</i></a>
+			</div>
+		</div>
+		<div class="mdui-appbar mdui-color-white">
+			<div class="mdui-tab mdui-tab-centered" mdui-tab>
+				<a id="example3-tab1" onclick="display('example3-tab1')"
+					class="mdui-ripple mdui-ripple-purple">全部</a> <a id="example3-tab2"
+					onclick="display('example3-tab2')"
+					class="mdui-ripple mdui-ripple-red">英语</a> <a id="example3-tab3"
+					onclick="display('example3-tab3')"
+					class="mdui-ripple mdui-ripple-blue">考研</a> <a id="example3-tab4"
+					onclick="display('example3-tab4')"
+					class="mdui-ripple mdui-ripple-green">作业答案</a> <a
+					id="example3-tab5" onclick="display('example3-tab5')"
+					class="mdui-ripple mdui-ripple-orange">教材PDF</a>
+			</div>
+		</div>
+	</div>
+	<div class="placeholder"></div>
+	<div class="mdui-container">
+		<div class="mdui-dialog" id="example-4">
+			<div class="mdui-container dialog">
+				<div class="mdui-textfield">
+					<input type="text" id="input-search" class="mdui-textfield-input"
+						placeholder="搜索一下，你就知道" />
+					<div class="mdui-textfield-helper">可进行标题和子标题匹配</div>
+				</div>
+				<button
+					class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white float-right"
+					mdui-tooltip="{content: '查找'}" onclick="search()">查找</button>
+			</div>
+		</div>
+		<div class="mdui-dialog" id="example-5">
+			<div class="mdui-appbar">
+				<div class="mdui-tab mdui-tab-full-width" mdui-tab>
+					<a href="#example5-tab1" class="mdui-ripple mdui-ripple-purple">注册</a>
+					<a href="#example5-tab2" class="mdui-ripple mdui-ripple-green">登录</a>
+				</div>
+			</div>
+			<div class="mdui-container-fluid">
+
+				<div class="mdui-container dialog" id="example5-tab1">
+					<form action="/jluinfosys/reg" method="POST">
+						<div class="mdui-textfield">
+							<i class="mdui-icon material-icons">account_circle</i> <label
+								class="mdui-textfield-label">用户名</label> <input
+								class="mdui-textfield-input" type="text" name="uname"/>
+						</div>
+						<div class="mdui-textfield">
+							<i class="mdui-icon material-icons">lock</i> <label
+								class="mdui-textfield-label">密码</label> <input
+								class="mdui-textfield-input" type="password" name="pwd"/>
+						</div>
+						<div class="mdui-textfield">
+							<i class="mdui-icon material-icons">lock</i> <label
+								class="mdui-textfield-label">再次确认密码</label> <input
+								class="mdui-textfield-input" type="password" name="pwd2"/>
+						</div>
+						<div class="mdui-textfield">
+							<i class="mdui-icon material-icons">email</i> <label
+								class="mdui-textfield-label">邮箱</label> <input
+								class="mdui-textfield-input" type="text" name="email"/>
+						</div>
+						<br>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white float-right"
+							mdui-tooltip="{content: '提交'}">提交</button>
+					</form>
+				</div>
+				<div class="mdui-container dialog" id="example5-tab2">
+					<form action="/jluinfosys/login" method="POST">
+						<div class="mdui-textfield">
+							<i class="mdui-icon material-icons">account_circle</i> <label
+								class="mdui-textfield-label">用户名</label> <input
+								class="mdui-textfield-input" type="text" name="uname" />
+						</div>
+						<div class="mdui-textfield">
+							<i class="mdui-icon material-icons">lock</i> <label
+								class="mdui-textfield-label">密码</label> <input
+								class="mdui-textfield-input" type="password" name="pwd" />
+						</div>
+						<div class="mdui-textfield">
+							<input class="mdui-textfield-input" type="hidden" name="type"
+								value="customer" />
+						</div>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white float-right"
+							mdui-tooltip="{content: '提交'}">提交</button>
+					</form>
+					<br>
+
+				</div>
+			</div>
+		</div>
+		<div class="mdui-row">
+			<div class="mdui-col-md-4 card-margin english">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/river.jfif" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title</div>
+								<div class="mdui-card-primary-subtitle">英语</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin pastgraduate">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/desktop.jpg" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title</div>
+								<div class="mdui-card-primary-subtitle">考研</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin answer">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/beautiful.jfif" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title</div>
+								<div class="mdui-card-primary-subtitle">作业答案</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin textbook">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/tree.jfif" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title</div>
+								<div class="mdui-card-primary-subtitle">教材PDF</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin english">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/river.jfif" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title1</div>
+								<div class="mdui-card-primary-subtitle">英语</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin pastgraduate">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/desktop.jpg" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title2</div>
+								<div class="mdui-card-primary-subtitle">考研</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin answer">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/beautiful.jfif" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title3</div>
+								<div class="mdui-card-primary-subtitle">作业答案</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin textbook">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/tree.jfif" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title4</div>
+								<div class="mdui-card-primary-subtitle">教材PDF</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin english">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/river.jfif" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title5</div>
+								<div class="mdui-card-primary-subtitle">英语</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin pastgraduate">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/desktop.jpg" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title6</div>
+								<div class="mdui-card-primary-subtitle">考研</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin answer">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/beautiful.jfif" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title7</div>
+								<div class="mdui-card-primary-subtitle">作业答案</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin textbook">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/tree.jfif" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title8</div>
+								<div class="mdui-card-primary-subtitle">教材PDF</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin english">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/river.jfif" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title9</div>
+								<div class="mdui-card-primary-subtitle">英语</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin pastgraduate">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/desktop.jpg" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title10</div>
+								<div class="mdui-card-primary-subtitle">考研</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin answer">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/beautiful.jfif" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title11</div>
+								<div class="mdui-card-primary-subtitle">作业答案</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin textbook">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/tree.jfif" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title12</div>
+								<div class="mdui-card-primary-subtitle">教材PDF</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin english">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/river.jfif" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title13</div>
+								<div class="mdui-card-primary-subtitle">英语</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin pastgraduate">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/desktop.jpg" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title14</div>
+								<div class="mdui-card-primary-subtitle">考研</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin answer">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/beautiful.jfif" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title15</div>
+								<div class="mdui-card-primary-subtitle">作业答案</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin textbook">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/tree.jfif" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title16</div>
+								<div class="mdui-card-primary-subtitle">教材PDF</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin english">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/river.jfif" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title17</div>
+								<div class="mdui-card-primary-subtitle">英语</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin pastgraduate">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/desktop.jpg" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title18</div>
+								<div class="mdui-card-primary-subtitle">考研</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin answer">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/beautiful.jfif" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title19</div>
+								<div class="mdui-card-primary-subtitle">作业答案</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin textbook">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/tree.jfif" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title</div>
+								<div class="mdui-card-primary-subtitle">教材PDF</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin english">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/river.jfif" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title20</div>
+								<div class="mdui-card-primary-subtitle">英语</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin pastgraduate">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/desktop.jpg" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title21</div>
+								<div class="mdui-card-primary-subtitle">考研</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin answer">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/beautiful.jfif" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title22</div>
+								<div class="mdui-card-primary-subtitle">作业答案</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin textbook">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/tree.jfif" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title23</div>
+								<div class="mdui-card-primary-subtitle">教材PDF</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin english">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/river.jfif" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title24</div>
+								<div class="mdui-card-primary-subtitle">英语</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin pastgraduate">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/desktop.jpg" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title25</div>
+								<div class="mdui-card-primary-subtitle">考研</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin answer">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/beautiful.jfif" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title26</div>
+								<div class="mdui-card-primary-subtitle">作业答案</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin textbook">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/tree.jfif" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title27</div>
+								<div class="mdui-card-primary-subtitle">教材PDF</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin english">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/river.jfif" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title28</div>
+								<div class="mdui-card-primary-subtitle">英语</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin pastgraduate">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/desktop.jpg" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title29</div>
+								<div class="mdui-card-primary-subtitle">考研</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin answer">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/beautiful.jfif" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title30</div>
+								<div class="mdui-card-primary-subtitle">作业答案</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-col-md-4 card-margin textbook">
+				<div class="mdui-card">
+					<div class="mdui-card-media">
+						<img src="../img/tree.jfif" />
+						<div class="mdui-card-media-covered mdui-card-media-covered-top">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">Title31</div>
+								<div class="mdui-card-primary-subtitle">教材PDF</div>
+							</div>
+						</div>
+					</div>
+					<div class="mdui-card-actions">
+						<button
+							class="mdui-btn mdui-ripple mdui-color-indigo mdui-ripple-white"
+							mdui-tooltip="{content: '查看'}">查看</button>
+						<button
+							class="mdui-btn mdui-ripple mdui-color-green mdui-ripple-white"
+							mdui-tooltip="{content: '下载'}">
+							<i class="mdui-icon material-icons">file_download</i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

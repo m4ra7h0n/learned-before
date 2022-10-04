@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/learned-before.iml" filepath="$PROJECT_DIR$/learned-before.iml" />
+      <module fileurl="file://$PROJECT_DIR$/learned-java/learned-java.iml" filepath="$PROJECT_DIR$/learned-java/learned-java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/learned-overall/learned-overall.iml" filepath="$PROJECT_DIR$/learned-overall/learned-overall.iml" />
+      <module fileurl="file://$PROJECT_DIR$/learned-security/learned-security.iml" filepath="$PROJECT_DIR$/learned-security/learned-security.iml" />
+      <module fileurl="file://$PROJECT_DIR$/learned-ui/learned-ui.iml" filepath="$PROJECT_DIR$/learned-ui/learned-ui.iml" />
+    </modules>
+  </component>
+</project>
